@@ -2,7 +2,7 @@
 
 var Tasks = require('./tasks.model');
 var passport = require('passport');
-var config = require('../../config/environment');
+var config = require('../../config/environment/development');
 var jwt = require('jsonwebtoken');
 var nodemailer = require('nodemailer');
 var socketio = require('socket.io-client')(config.backendurl)
