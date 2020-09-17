@@ -21,7 +21,16 @@ function onConnect(socket) {
   socket.on('user:save', function (data) {
     socket.broadcast.emit('user:save', data);
   });
-
+  socket.on('task:save', function (data) {
+    socket.broadcast.emit('task:save', data);
+  });
+  socket.on('task:delete', function (data) {
+    socket.broadcast.emit('task:delete', data);
+  });
+  socket.on('task:update', function (data) {
+    socket.broadcast.emit('task:update', data);
+  });
+  
 }
 
 module.exports = function (socketio) {

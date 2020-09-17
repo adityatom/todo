@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb+srv://<username>:<password>@cluster0-q5fcm.mongodb.net/test?retryWrites=true&w=majority'
+    uri: 'mongodb+srv://adminuser:dYHwmdGqMBacQOmL@clusterarc.qmiom.mongodb.net/test?retryWrites=true&w=majority'
   },
 
 

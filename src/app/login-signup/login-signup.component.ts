@@ -48,6 +48,10 @@ export class LoginSignupComponent implements OnInit {
           this.router.navigate(['/home'])
         }
 
+      },err=>{
+        this.userServices.openSnackBar(err.error.message,"X")
+        console.log(err.error.message);
+        
       })
     }
 

@@ -39,15 +39,36 @@ export class SocketService {
   newMessageReceived() {
     const observable = new Observable<any>(observer => {
       this.socket.on('user:save', (data) => {
-        console.log(data);
-
+        observer.next(data);
+      });
+    });
+    return observable;
+  }
+ newTaskAdded() {
+    const observable = new Observable<any>(observer => {
+      this.socket.on('task:save', (data) => {
         observer.next(data);
       });
     });
     return observable;
   }
 
-
+  deleteTask() {
+    const observable = new Observable<any>(observer => {
+      this.socket.on('task:delete', (data) => {
+        observer.next(data);
+      });
+    });
+    return observable;
+  }
+  updateTask() {
+    const observable = new Observable<any>(observer => {
+      this.socket.on('task:update', (data) => {
+        observer.next(data);
+      });
+    });
+    return observable;
+  }
   disconnectsocket() {
     this.socket.emit('disconnect', '');
   }

@@ -12,12 +12,19 @@ import { JwtInterceptor } from './response-request-handlers/jwt.interceptor';
 import { ErrorInterceptor } from './response-request-handlers/error.interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FrontEndConfig } from "./frontendConfig"
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DialogComponent } from './dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
     LoginSuccessComponent,
-    LoginSignupComponent
+    LoginSignupComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +33,15 @@ import { FrontEndConfig } from "./frontendConfig"
     MatCheckboxModule,
     ReactiveFormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
+  entryComponents:[DialogComponent],
   providers: [FrontEndConfig, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
