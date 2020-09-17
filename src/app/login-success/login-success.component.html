@@ -52,13 +52,19 @@
         <td>{{item?.expiry |date:'MMM d, y, h:mm a'}}</td>
         <td>{{item?.status}}</td>
         <td>{{item?.createdBy?.email}}</td>
-        <td><span class="material-icons" (click)="UpdateTask(item)">
+       <td *ngIf="profile._id == item.createdBy?._id"><span class="material-icons" (click)="UpdateTask(item)">
           create
           </span>
           <span class="material-icons" (click)="deleteTask(item)">
             delete
             </span>            
           </td>
+          <td *ngIf="profile._id != item.createdBy?._id">
+            <span>
+            --
+            </span>
+                   
+            </td>
 
         </tr>
     </tbody>
